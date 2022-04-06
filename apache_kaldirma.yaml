@@ -3,12 +3,30 @@
     become: true
     tasks:
 
+      # Aşağıdaki 2 task Ubuntu sunucularda çalışır
+
       - name: Bu gorev apache2 paketini siler.
         apt:
           name: apache2
           state: absent
+        when: ansible_distribution == "Ubuntu"
 
       - name: Bu gorev apache2 için php kutuphanesini siler.
         apt:
           name: libapache2-mod-php
           state: absent
+        when: ansible_distribution == "Ubuntu"
+
+      # Aşağıdaki 2 task Rocky Linux sunucularda çalışır
+
+      - name: Bu gorev httpd paketini siler.
+        yum:
+          name: httpd
+          state: absent
+        when: ansible_distribution == "Rocky"
+
+      - name: Bu gorev httpd için php kutuphanesini siler.
+        yum:
+          name: php
+          state: absent
+        when: ansible_distribution == "Rocky"
