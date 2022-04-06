@@ -10,7 +10,9 @@
       - name: Bu gorev apache2 yuklemesi yapar.
         apt:
           name: apache2
+          state: latest
 
       - name: Bu gorev apache2 için php kutuphanesi yuklemesi yapar.
         apt:
           name: libapache2-mod-php
+          state: latest
