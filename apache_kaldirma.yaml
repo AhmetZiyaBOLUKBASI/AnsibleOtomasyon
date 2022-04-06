@@ -3,12 +3,12 @@
     become: true
     tasks:
 
-      - name: Bu gorev apache2 yuklemesi yapar.
+      - name: Bu gorev apache2 paketini siler.
         apt:
           name: apache2
           state: absent
 
-      - name: Bu gorev apache2 için php kutuphanesi yuklemesi yapar.
+      - name: Bu gorev apache2 için php kutuphanesini siler.
         apt:
           name: libapache2-mod-php
           state: absent
