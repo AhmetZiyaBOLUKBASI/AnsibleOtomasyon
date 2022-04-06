@@ -1,0 +1,8 @@
+---
+  - hosts: all # bu taskler inventory dosyasındaki tüm sunucular için geçerlidir.
+    become: true
+    tasks:
+
+      - name: Bu gorev apache2 yuklemesi yapar.
+        apt:
+          name: apache22
