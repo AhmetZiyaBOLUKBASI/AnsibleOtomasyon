@@ -3,19 +3,40 @@
     become: true
     tasks:
 
-      - name: Bu gorev, apt paket indeksini guceller.
+      # Bu görevler, Debian & Ubuntu tabanlı sunucular içindir.
+
+      - name: Bu gorev, Ubuntu apt paket indeksini guceller.
         apt: 
           update_cache: yes
         when: ansible_distribution == "Ubuntu"
 
-      - name: Bu gorev apache2 yuklemesi yapar.
+      - name: Bu gorev Ubuntu apache2 yuklemesi yapar.
         apt:
           name: apache2
           state: latest
         when: ansible_distribution == "Ubuntu"
 
-      - name: Bu gorev apache2 için php kutuphanesi yuklemesi yapar.
+      - name: Bu gorev Ubuntu apache2 için php kutuphanesi yuklemesi yapar.
         apt:
           name: libapache2-mod-php
+          state: latest
+        when: ansible_distribution == "Ubuntu"
+      
+      # Bu görevler, Red Hat & Rocky tabanlı sunucular içindir.
+
+      - name: Bu gorev, Rocky Linux update indeksini guceller.
+        dnf: 
+          update_cache: yes
+        when: ansible_distribution == "Ubuntu"
+
+      - name: Bu gorev Rocky Linux httpd yuklemesi yapar.
+        dnf:
+          name: hhtpd
+          state: latest
+        when: ansible_distribution == "Ubuntu"
+
+      - name: Bu gorev Rocky Linux httpd için php kutuphanesi yuklemesi yapar.
+        dnf:
+          name: php
           state: latest
         when: ansible_distribution == "Ubuntu"
