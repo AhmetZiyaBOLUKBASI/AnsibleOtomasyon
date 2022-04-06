@@ -3,6 +3,10 @@
     become: true
     tasks:
 
+      - name: Bu gorev, apt paket indeksini guceller.
+        apt: 
+          update_cache: yes
+
       - name: Bu gorev apache2 yuklemesi yapar.
         apt:
           name: apache2
