@@ -6,13 +6,16 @@
       - name: Bu gorev, apt paket indeksini guceller.
         apt: 
           update_cache: yes
+        when: ansible_distribution == "Ubuntu"
 
       - name: Bu gorev apache2 yuklemesi yapar.
         apt:
           name: apache2
           state: latest
+        when: ansible_distribution == "Ubuntu"
 
       - name: Bu gorev apache2 için php kutuphanesi yuklemesi yapar.
         apt:
           name: libapache2-mod-php
           state: latest
+        when: ansible_distribution == "Ubuntu"
