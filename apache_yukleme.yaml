@@ -25,18 +25,18 @@
       # Bu görevler, Red Hat & Rocky tabanlı sunucular içindir.
 
       - name: Bu gorev, Rocky Linux update indeksini guceller.
-        dnf: 
+        yum: 
           update_cache: yes
-        when: ansible_distribution == "Ubuntu"
+        when: ansible_distribution == "Rocky"
 
       - name: Bu gorev Rocky Linux httpd yuklemesi yapar.
-        dnf:
+        yum:
           name: hhtpd
           state: latest
-        when: ansible_distribution == "Ubuntu"
+        when: ansible_distribution == "Rocky"
 
       - name: Bu gorev Rocky Linux httpd için php kutuphanesi yuklemesi yapar.
-        dnf:
+        yum:
           name: php
           state: latest
-        when: ansible_distribution == "Ubuntu"
+        when: ansible_distribution == "Rocky"
