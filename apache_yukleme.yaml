@@ -31,7 +31,7 @@
 
       - name: Bu gorev Rocky Linux httpd yuklemesi yapar.
         yum:
-          name: hhtpd
+          name: httpd
           state: latest
         when: ansible_distribution == "Rocky"
 
