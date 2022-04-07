@@ -1,0 +1,26 @@
+---
+  - hosts: all # bu taskler inventory dosyasındaki tüm sunucular için geçerlidir.
+    become: true
+    tasks:
+
+      # Bu görevler, Debian & Ubuntu tabanlı sunucular içindir.
+
+      - name: Bu gorev, Ubuntu apache2 & PHP kutuphane kurulumu ile birlikte paket indeksini gunceller.
+        apt: 
+          name:
+            - apache2
+            - libapache2-mod-php
+          state: latest
+          update_cache: yes
+        when: ansible_distribution == "Ubuntu"
+      
+      # Bu görevler, Red Hat & Rocky tabanlı sunucular içindir.
+
+      - name: Bu gorev, Rocky Linux httpd & PHP kutuphane kurulumu ile birlikte update indeksini guceller.
+        yum: 
+          name: 
+            - httpd
+            - php
+          state: latest
+          update_cache: yes
+        when: ansible_distribution == "Rocky"
