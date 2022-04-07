@@ -1,0 +1,3 @@
+---
+  web_sunucu: apache2
+  php_kutuphanesi: libapache2-mod-php
