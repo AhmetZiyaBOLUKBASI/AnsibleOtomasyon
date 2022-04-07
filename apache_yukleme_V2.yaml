@@ -1,0 +1,14 @@
+---
+  - hosts: all # bu taskler inventory dosyasındaki tüm sunucular için geçerlidir.
+    become: true
+    tasks:
+
+      # Bu görevler, Debian & Ubuntu tabanlı sunucular içindir.
+
+      - name: Bu gorev, Tum sunucularda web sunucu & PHP kutuphane kurulumu ile birlikte paket indeksini gunceller.
+        ansible.builtin.package: 
+          name:
+            - "{{ web_sunucu }}"
+            - "{{ php_kutuphanesi }}"
+          state: latest
+          update_cache: yes
