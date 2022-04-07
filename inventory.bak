@@ -1,0 +1,4 @@
+192.168.1.54 web_sunucu=apache2 php_kutuphanesi=libapache2-mod-php
+192.168.1.55 web_sunucu=apache2 php_kutuphanesi=libapache2-mod-php
+192.168.1.56 web_sunucu=apache2 php_kutuphanesi=libapache2-mod-php
+192.168.1.57 web_sunucu=httpd php_kutuphanesi=php
