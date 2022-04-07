@@ -1,0 +1,13 @@
+---
+  - hosts: all # bu taskler inventory dosyasındaki tüm sunucular için geçerlidir.
+    become: true
+    tasks:
+
+      # Aşağıdaki 2 task Ubuntu sunucularda çalışır
+
+      - name: Bu gorev, Tum sunucularda web sunucu & PHP kutuphanesini kaldırır.
+        ansible.builtin.package: 
+          name:
+            - "{{ web_sunucu }}"
+            - "{{ php_kutuphanesi }}"
+          state: absent
