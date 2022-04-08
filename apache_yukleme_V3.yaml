@@ -1,0 +1,48 @@
+---
+  - hosts: all # bu taskler inventory dosyasındaki tüm sunucular için geçerlidir.
+    become: true
+    tasks:
+
+      # bu playdeki taskler sunucularda, paketleri ve paket indeksleri günceller.
+
+      - name: Bu gorev, Ubuntu sunucularında Upgrade & Update işlemlerini yapar.
+        ansible.builtin.package: 
+          upgrade: dist # upgrade: dist ifadesi ile paketlerin dependencylerini de güncelleriz.
+          update_cache: yes
+        when: ansible_distribution == "Ubuntu" # işletim sistemi parametrelerinden dolayı koşul ifadesi kullanılmıştır.
+
+      - name: Bu gorev, Rocky Linux sunucularında Upgrade & Update işlemlerini yapar.
+        ansible.builtin.package: 
+          update_only: yes # update_only: yes ifadesi ile paketlerin dependencylerini de güncelleriz.
+          update_cache: yes
+        when: ansible_distribution == "Rocky" # işletim sistemi parametrelerinden dolayı koşul ifadesi kullanılmıştır.
+  
+  # Bu görevler, Debian & Ubuntu tabanlı sunucular web sunucuları içindir.
+  
+  - hosts: web_sunuculari
+    become: true
+    tasks:
+
+      # Aşağıdaki task debug amaçlıdır.
+
+      - name: işletim sistemlerini tespit et.
+        debug: var=ansible_os_family
+
+
+      # first_found bir lookup pluginidir. Detaylı bilgi için şu komutu çalıştırın;
+      # ansible-doc -t lookup first_found
+
+      - name: Dosyalardan değişkenleri oku.
+        include_vars: "{{ lookup('first_found', params)}}"
+        vars:
+          params:
+            files:
+              - "vars/apache_{{ ansible_os_family }}.yml"
+              - "vars/apache_varsayilan.yml"
+
+      - name: Bu gorev, Tum sunucularda web sunucu & PHP kutuphane kurulumu ile birlikte paket indeksini gunceller.
+        ansible.builtin.package: 
+          name:
+            - "{{ web_sunucu }}"
+            - "{{ php_kutuphanesi }}"
+          state: latest
