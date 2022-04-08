@@ -26,7 +26,7 @@
       # Aşağıdaki task debug amaçlıdır.
 
       - name: işletim sistemlerini tespit et.
-        debug: var=ansible_os_family
+        debug: var=ansible_distribution
 
 
       # first_found bir lookup pluginidir. Detaylı bilgi için şu komutu çalıştırın;
@@ -37,7 +37,7 @@
         vars:
           params:
             files:
-              - "vars/apache_{{ ansible_os_family }}.yml"
+              - "vars/apache_{{ ansible_distribution }}.yml"
               - "vars/apache_varsayilan.yml"
 
       - name: Bu gorev, Tum sunucularda web sunucu & PHP kutuphane kurulumu yapar.
@@ -56,7 +56,7 @@
       # Aşağıdaki task debug amaçlıdır.
 
       - name: işletim sistemlerini tespit et.
-        debug: var=ansible_os_family
+        debug: var=ansible_distribution
 
 
       # first_found bir lookup pluginidir. Detaylı bilgi için şu komutu çalıştırın;
@@ -67,7 +67,7 @@
         vars:
           params:
             files:
-              - "vars/apache_{{ ansible_os_family }}.yml"
+              - "vars/apache_{{ ansible_distribution }}.yml"
               - "vars/apache_varsayilan.yml"
 
       - name: Bu gorev, Veritabanı sunucusuna MariaDB kurulumu yapar.
@@ -85,7 +85,7 @@
       # Aşağıdaki task debug amaçlıdır.
 
       - name: işletim sistemlerini tespit et.
-        debug: var=ansible_os_family
+        debug: var=ansible_distribution
 
 
       # first_found bir lookup pluginidir. Detaylı bilgi için şu komutu çalıştırın;
@@ -96,7 +96,7 @@
         vars:
           params:
             files:
-              - "vars/apache_{{ ansible_os_family }}.yml"
+              - "vars/apache_{{ ansible_distribution }}.yml"
               - "vars/apache_varsayilan.yml"
 
       - name: Bu gorev, FTP sunucusuna VSFTP kurulumu yapar.
