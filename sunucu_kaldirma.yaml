@@ -23,7 +23,7 @@
               - "vars/apache_{{ ansible_distribution }}.yml"
               - "vars/apache_varsayilan.yml"
 
-      - name: Bu gorev, Tum sunucularda web sunucu & PHP kutuphane kurulumu yapar.
+      - name: Bu gorev, Tum sunucularda web sunucu & PHP kutuphane paketlerini siler.
         ansible.builtin.package: 
           name:
             - "{{ web_sunucu }}"
@@ -53,7 +53,7 @@
               - "vars/apache_{{ ansible_distribution }}.yml"
               - "vars/apache_varsayilan.yml"
 
-      - name: Bu gorev, Veritabanı sunucusuna MariaDB kurulumu yapar.
+      - name: Bu gorev, Veritabanı sunucusuna MariaDB paketini siler.
         ansible.builtin.package: 
           name:
             - "{{ db_sunucusu }}"
@@ -82,7 +82,7 @@
               - "vars/apache_{{ ansible_distribution }}.yml"
               - "vars/apache_varsayilan.yml"
 
-      - name: Bu gorev, FTP sunucusuna VSFTP kurulumu yapar.
+      - name: Bu gorev, FTP sunucusuna VSFTP paketini siler.
         ansible.builtin.package: 
           name:
             - "{{ ftp_sunucusu }}"
