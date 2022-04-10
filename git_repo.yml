@@ -1,0 +1,25 @@
+---
+  - hosts: Ansible_Controller
+    connection: local
+    vars:
+      - repo: 'https://github.com/techakademi/Yenisite.git'
+      - hedefklasor: '/home/theadmin/Prod_Proje'
+    become: yes 
+    tasks:
+
+      - name: Bu görev, Git repodan projenin kaynak kodlarını download eder.
+        # Bu task bir download operasyonudur. wget tarzında bir işlem gerekitirir
+        # Bu yüzden ansible içindeki git modülünü kullanacağız.
+        git:
+          repo: "{{ repo }}"
+          dest: "{{ hedefklasor }}"
+      
+      # Aşağıdaki task indirilen kaynak kodların listesini verir. Debug amaçlıdır.
+
+      - name: Bu görev, github repodan indirilen proje belgelerini listeler.
+        find:
+          paths: "{{ hedefklasor }}"
+        register: liste # find modülünün kullanılması ile elde edilen çıktıları görüntülemek istiyoruz.
+
+      - debug:
+          var: liste
