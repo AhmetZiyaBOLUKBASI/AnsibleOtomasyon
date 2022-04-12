@@ -3,3 +3,5 @@
   php_kutuphanesi: libapache2-mod-php
   db_sunucusu: mariadb-server
   ftp_sunucusu: vsftpd
+  projeklasor: /home/theadmin/Prod_Proje/
+  hedefklasor: /var/www/html/

@@ -1,3 +1,5 @@
 ---
   web_sunucu: httpd
   php_kutuphanesi: php
+  projeklasor: /home/theadmin/Prod_Proje/
+  hedefklasor: /var/www/html/
