@@ -7,3 +7,4 @@
   hedefklasor: /var/www/html/
   yerelkonf: /home/theadmin/AnsibleOtomasyon/confbelgeler/dir.conf
   hedefkonf: /etc/apache2/mods-enabled/dir.conf
+  web_servis: apache2
