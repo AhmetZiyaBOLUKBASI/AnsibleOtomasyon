@@ -5,3 +5,5 @@
   ftp_sunucusu: vsftpd
   projeklasor: /home/theadmin/Prod_Proje/
   hedefklasor: /var/www/html/
+  yerelkonf: /home/theadmin/AnsibleOtomasyon/confbelgeler/dir.conf
+  hedefkonf: /etc/apache2/mods-enabled/dir.conf

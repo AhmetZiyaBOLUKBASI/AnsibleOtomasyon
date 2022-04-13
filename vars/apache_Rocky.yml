@@ -3,3 +3,5 @@
   php_kutuphanesi: php
   projeklasor: /home/theadmin/Prod_Proje/
   hedefklasor: /var/www/html/
+  yerelkonf: /home/theadmin/AnsibleOtomasyon/confbelgeler/httpd.conf
+  hedefkonf: /etc/httpd/conf/httpd.conf
